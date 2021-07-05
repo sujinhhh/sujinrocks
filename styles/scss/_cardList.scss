@@ -1,0 +1,28 @@
+.card-list {
+  background-color: $white;
+  width: $full-w;
+  height: $full-h;
+  &__container {
+    background-color: tomato;
+    width: 40rem;
+    height: 30rem;
+    margin: 0 auto;
+  }
+  &__card {
+    background-color: $white;
+    margin: 1rem;
+    display: inline-block;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 3px 3px 19px rgba($color: #830101, $alpha: 1);
+  }
+  h1 {
+    color: $black;
+    display: inline-block;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 3px 3px 19px rgba($color: #000000, $alpha: 1);
+    }
+  }
+}
