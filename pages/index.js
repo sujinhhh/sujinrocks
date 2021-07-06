@@ -3,6 +3,10 @@ import Link from "next/link";
 import Router from "next/router";
 import styled from "styled-components";
 import CardList from "./cardList";
+import Three from "./three";
+import Hero from "./hero";
+import FetchStudy from "./apiStudy/fetchStudy";
+import AxiosStudy from "./apiStudy/axiosStudy";
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -27,23 +31,11 @@ const Button = styled.button`
 `;
 
 export default function Home() {
-  const [num, setNum] = useState(0);
-  const increment = () => {
-    setNum(num + 3);
-  };
-  useEffect(() => {
-    console.log("didupdate?");
-  }, []);
   return (
-    <Wrapper>
-      <Link href="#">
-        <Title>sujin</Title>
-      </Link>
+    <div>
+      <AxiosStudy />
+      <FetchStudy />
       <CardList />
-      <h1>{num}</h1>
-      <Button primary onClick={() => Router.push("/api/hello.js")}>
-        Click
-      </Button>
-    </Wrapper>
+    </div>
   );
 }

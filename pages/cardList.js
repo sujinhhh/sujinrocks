@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import Card from "../components/card";
 
 function cardList() {
-  const [inputVal, setInputVal] = useState("");
+  const [inputVal, setInputVal] = useState({
+    name: "",
+    job: "",
+  });
   const [cardList, setCardList] = useState([
     { name: "sujin", job: "programmer", cardIndex: 1 },
     { name: "bts", job: "singer", cardIndex: 2 },
@@ -11,25 +14,54 @@ function cardList() {
   const [selectedCard, setSelectedCard] = useState("");
 
   const handleChangeInput = (e) => {
-    setInputVal(e.target.value);
+    const { name, value } = e.target;
+    console.log(name);
+    console.log(value);
+    setInputVal({
+      ...inputVal,
+      // 밑에 "name"
+      [name]: value,
+    });
   };
 
-  const handleUpdate = () => {
-    setCardList(
-      cardList.map((item) =>
-        item.cardIndex == selectedCard
-          ? {
-              ...item,
-              name: inputVal,
-            }
-          : item
-      )
-    );
+  const resetInput = () => {
+    setInputVal({
+      name: "",
+      job: "",
+    });
   };
 
-  useEffect(() => {
-    console.log(selectedCard);
-  }, [selectedCard]);
+  const handleUpdate = (id) => {
+    console.log(inputVal.name);
+
+    if (inputVal.name !== null && inputVal.job !== null) {
+      setCardList(
+        cardList.map((item) =>
+          item.cardIndex == id
+            ? {
+                name: inputVal.name,
+                job: inputVal.job,
+              }
+            : item
+        )
+      );
+    }
+    resetInput();
+  };
+  const handleAdd = () => {
+    let newObj = {
+      cardIndex: cardList.length + 1,
+      name: inputVal.name,
+      job: inputVal.job,
+    };
+    setCardList(cardList.concat(newObj));
+  };
+  const handleDelete = (id) => {
+    // if(selectedCard !== undefined) alert('card 없음')
+    setCardList(cardList.filter((item) => item.cardIndex !== id));
+  };
+
+  useEffect(() => {}, [selectedCard]);
 
   const handleClick = (index) => {
     setSelectedCard(index);
@@ -42,11 +74,30 @@ function cardList() {
         {cardList
           //   .filter((item) => inputVal && item.name === inputVal)
           .map((item, index) => (
-            <Card key={index} props={item} clickBt={handleClick} />
+            <Card
+              key={index}
+              props={item}
+              clickBt={handleClick}
+              del={handleDelete}
+              edit={handleUpdate}
+            />
           ))}
       </div>
-      <input type="text" value={inputVal} onChange={handleChangeInput} />
-      <button onClick={handleUpdate}>Click</button>
+      <input
+        type="text"
+        name="name"
+        value={inputVal.name}
+        onChange={handleChangeInput}
+        placeholder="name"
+      />
+      <input
+        type="text"
+        name="job"
+        value={inputVal.job}
+        onChange={handleChangeInput}
+        placeholder="job"
+      />
+      <button onClick={handleAdd}>Add</button>
     </section>
   );
 }
