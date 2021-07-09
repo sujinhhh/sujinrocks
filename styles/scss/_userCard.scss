@@ -1,0 +1,13 @@
+.user-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__container {
+    width: 15rem;
+    height: 5rem;
+    background-color: lightcoral;
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 20px;
+  }
+}

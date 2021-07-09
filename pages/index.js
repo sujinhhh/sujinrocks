@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Router from "next/router";
 import styled from "styled-components";
-import CardList from "./cardList";
-import Three from "./three";
-import Hero from "./hero";
-import FetchStudy from "./apiStudy/fetchStudy";
-import AxiosStudy from "./apiStudy/axiosStudy";
+import CardList from "./study/cardList";
+import Three from "./study/three";
+import Hero from "./study/hero";
+import FetchStudy from "./study/fetchStudy";
+import AxiosStudy from "./study/axiosStudy";
+import About from "./about";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -31,11 +34,5 @@ const Button = styled.button`
 `;
 
 export default function Home() {
-  return (
-    <div>
-      <AxiosStudy />
-      <FetchStudy />
-      <CardList />
-    </div>
-  );
+  return <div>Home</div>;
 }

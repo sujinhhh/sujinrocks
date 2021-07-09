@@ -1,11 +1,19 @@
 .card-list {
-  background-color: $white;
-  width: $full-w;
-  height: $full-h;
+  background-color: $black;
+  input {
+    width: 20rem;
+    height: 4rem;
+    font-size: 2rem;
+  }
+  & > button {
+    background-color: plum;
+    width: 10rem;
+    height: 3rem;
+    border-radius: 20px;
+    border: 0;
+    cursor: pointer;
+  }
   &__container {
-    background-color: tomato;
-    width: 40rem;
-    height: 30rem;
     margin: 0 auto;
   }
   &__card {
