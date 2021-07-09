@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Head from "next/head";
 import Link from "next/link";
 import Router from "next/router";
 import styled from "styled-components";
@@ -10,6 +11,7 @@ import AxiosStudy from "./study/axiosStudy";
 import About from "./about";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import comps from "../styles/Comps.module.scss";
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -34,5 +36,16 @@ const Button = styled.button`
 `;
 
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <>
+      <Head>
+        <title>Home</title>
+        <meta name="keywords" content="the best programmer" />
+      </Head>
+      <div>
+        <div>Home</div>
+        <button className="btn-r"> Click</button>
+      </div>
+    </>
+  );
 }

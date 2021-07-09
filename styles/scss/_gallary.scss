@@ -1,0 +1,16 @@
+.gallery {
+  a {
+    cursor: pointer;
+  }
+  &__img {
+    width: 500px;
+  }
+}
+
+.gallery-detail {
+  transition: $opacityTransition;
+  @include flex-center;
+  img {
+    height: 70vh;
+  }
+}

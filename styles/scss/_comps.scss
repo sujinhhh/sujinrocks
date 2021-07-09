@@ -1,0 +1,29 @@
+// button
+
+.btn-r {
+  display: block;
+  width: 150px;
+  padding: 8px 0;
+  margin: 20px;
+  background-color: #4979ff;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.text-c {
+  text-align: center;
+}
+
+.single-select {
+  padding: 2px 16px;
+  background: $white;
+  display: block;
+  margin: 20px 10px;
+  border-left: 8px solid $white;
+  &:hover {
+    border-left: 8px solid $medBlue;
+    cursor: pointer;
+  }
+}

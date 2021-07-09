@@ -1,0 +1,21 @@
+nav {
+  margin: 10px auto 80px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  .logo {
+    margin-right: auto;
+    position: relative;
+    img {
+      width: 100px;
+    }
+    h1 {
+      position: absolute;
+      top: 40px;
+      right: 0px;
+    }
+  }
+  a {
+    margin: 12px;
+  }
+}
