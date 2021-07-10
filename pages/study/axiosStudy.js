@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import UserCard from "./userCard";
+// import UserCard from "./userCard";
 
 function AxiosStudy() {
   const [userList, setUserList] = useState([]);
@@ -20,9 +20,9 @@ function AxiosStudy() {
     <div>
       <h1>Axios 입니다</h1>
       <div className="user-card">
-        {userList.map((item, index) => (
+        {/* {userList.map((item, index) => (
           <UserCard key={item.id} item={item} />
-        ))}
+        ))} */}
       </div>
     </div>
   );
